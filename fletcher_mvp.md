@@ -10,7 +10,7 @@ The business problem that I plan on tackling for Project Fletcher is building an
 
 ### Data:
 
-A majority of the data was downloaded from the yelp challenge [dataset]. Inside is data from 10 different metropolitan areas and contains information regarding the local business, the reviews associated with that business, and the users that reviewed them. In filtering the dataset for only bars that have more than 50 reviews, I end up with about 6000 different businesses which would total to roughly 300k - 400k reviews to analyze. If I need more data I plan on utilizing either the Yelp or TripAdvisor API.
+A majority of the data was downloaded from the yelp challenge [dataset]. Inside is data from 10 different metropolitan areas and contains information regarding the local business, the reviews associated with that business, and the users that reviewed them. In filtering the dataset for only bars that have more than 50 reviews, I end up with about 4000 different businesses which would total to roughly 200k - 300k reviews to analyze. If I need more data I plan on utilizing either the Yelp or TripAdvisor API.
 
 Some features that I believe would be relevant from the reviews data are:  
 
