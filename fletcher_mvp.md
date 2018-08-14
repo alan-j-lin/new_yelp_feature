@@ -42,5 +42,4 @@ One feature I will not be utilizing is ambience, as some businesses have that la
 A list of some currently known unknowns:  
 * 6000 businesses may not be enough especially if spread through 10 metropolitan areas, need to find distribution of selected bars in each area. Would need to interact with Yelp and TripAdvisor APIs if more data is needed.
 * Have not identified number of clusters (yelp has 9 for ambience) or classification method.
-* User, reviews, and business data tables have relations with shared id columns, but data format comes in .jsons. So unclear of whether or not I need to convert .json data to SQL so I can utilize joins, use the $lookup operation in MongoDB so I can stick with MongoDB, or utilize a mix of SQL and MongoDB.
 * For the end product deliverable I would like to build an interface where the user can load a new bar into the interface and get a custom recommendation, time needed for the flask app may be too much.
