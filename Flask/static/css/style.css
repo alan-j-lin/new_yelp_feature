@@ -1,8 +1,56 @@
-body{
-  background-color: #eaa81b;
-  font-family: 'Helvetica';
-};
+#navbar{
+  background-color: #aa530e;
+  color: #f3eded;
+}
 
-.navbar{
-  background-color: #012c0b;
-};
+#title{
+  color: #f3eded;
+  font-weight: bold;
+  text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+  text-align: center !important;
+}
+
+.jumbotron{
+  background-color: #df8931;
+  color: #f3eded;
+  text-align: justify !important;
+}
+
+.form-control{
+  background-color: #f3eded;
+  color: #aa530e !important;
+}
+
+::placeholder{
+  color: #aa530e !important;
+}
+
+#state_selection{
+  background-color: #f3eded;
+  color: #aa530e;
+}
+
+#submit{
+  background-color: #aa530e;
+  color: #f3eded;
+}
+
+
+p{
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+#bar_examples{
+  text-align: center;
+}
+
+body{
+  background-color: #f5c16c;
+  font-family: 'Helvetica';
+  color: #aa530e;
+}

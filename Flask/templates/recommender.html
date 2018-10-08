@@ -13,213 +13,236 @@
   <body>
 
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark" id="navbar">
-      <a class="navbar-brand" href="#"> Bar Profiler and Recommender </a>
+      <a class="navbar-brand" href="#"> To Beer or not to Beer </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <!-- <li class="nav-item active">
-            <a class="nav-link" href="#">Description</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Application</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li> -->
-        </ul>
       </div>
     </nav>
 
     <div class="jumbotron jumbotron-fluid text-center" id='description' style="margin-bottom:0">
-      <h1>To Beer or not to Beer</h1>
-      <p>This is a bar recommendation engine built on the Yelp challenge dataset. It utilizes NLP techniques
-      like topic modeling to group similar bars together.</p>
+      <h3 id='title'> The Missing Yelp Feature </h3>
+      <p>
+        Yelp currently does not have a feature where the user can provide inputs on a set of bars that they enjoy,
+        and then search for similar bars at a location of the user's choosing. This recommendation app was built to fix that.
+        It primarily utilizes NLP techniques like topic modeling to generate descriptive features from Yelp user review data.
+        The review data for this engine was from the <a href="https://www.yelp.com/dataset/challenge">Yelp challenge dataset</a>.
+        The data itself can be explored in the Tableau dashboard below as well as the generated topics from topic modeling.
+        If you would like to read more please check out my <a href="medium.com"> blog post </a>.
+      </p>
+    </div>
+
+
+    <div class='tableauPlaceholder' id='viz1535080162177' style='position: relative'><noscript><a href='#'><img alt='Recommender Data ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ba&#47;BarRecommender&#47;RecommenderData&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='BarRecommender&#47;RecommenderData' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ba&#47;BarRecommender&#47;RecommenderData&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1535080162177');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+    <div class="jumbotron jumbotron-fluid text-center" id='application' style="margin-bottom:0">
+      <h3 id='title'>Recommender App</h3>
+      <p>
+       Utilizing the features as shown in the Tableau dashboard recommendations were given based
+       on the cosine similarity between different bars. These recommendations are done to be location
+       agnostic so that bars not in the immediate vicinity can also be discovered. As such to use the
+       application please input up to three known bars (names can be taken from highlighting points on
+       the Tableau dashboard), selecting which state or terrority you would like to search for recommendations
+       in (default is all), and the select how many similar bars you would like and the threshold for
+       similarity.
+     </p>
     </div>
 
     <br>
 
-    <div class='tableauPlaceholder' id='viz1535080162177' style='position: relative'><noscript><a href='#'><img alt='Recommender Data ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ba&#47;BarRecommender&#47;RecommenderData&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='BarRecommender&#47;RecommenderData' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ba&#47;BarRecommender&#47;RecommenderData&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1535080162177');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-
-    <br>
+    <p id='bar_examples'>
+      Some example bars are Hawk's Bar & Grill in Wisconsin, Cantina 1511 in North Carolina, and Crave Melt
+      and Tap in Pennsylvania.
+    </p>
 
     <div class="container">
 
       <div class="row">
 
-        <div class="col">
+          <div class="col">
 
-          <input class="form-control" type="text" placeholder="Bar 1" id="input_bar1">
-          <input class="form-control" type="text" placeholder="Bar 2" id="input_bar2">
-          <input class="form-control" type="text" placeholder="Bar 3" id="input_bar3">
+            <input class="form-control" type="text" placeholder="Bar 1" id="input_bar1">
+            <input class="form-control" type="text" placeholder="Bar 2" id="input_bar2">
+            <input class="form-control" type="text" placeholder="Bar 3" id="input_bar3">
+
+          </div>
+
+          <div class="col">
+
+            <div class="row">
+
+                <select class="custom-select" id="state_selection">
+                  <option selected value="N/A">Choose State or Territory</option>
+                  <option value="N/A">All</option>
+                  <option value="AB">Alberta</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="IL">Illinois</option>
+                  <option value="IN">Indiana</option>
+                  <option value="NC">North Carolina</option>
+                  <option value="NV">Nevada</option>
+                  <option value="OH">Ohio</option>
+                  <option value="ON">Ontario</option>
+                  <option value="PA">Pennsylvania</option>
+                  <option value="QC">Quebec</option>
+                  <option value="SC">South Carolina</option>
+                  <option value="WI">Wisconsin</option>
+                </select>
+
+            </div>
+
+            <div class="row">
+
+                <label class="mt-3" for="neighbors_range">Number of similar bars: <output  id="neighbors_range_disp"></output> </label>
+                <input type="range" class="custom-range" min="1" max="10" step="1"
+                id="neighbors_range" oninput="neighbors_range_disp.value = neighbors_range.value">
+
+            </div>
+
+            <div class="row">
+
+                <label class="mt-3" for="threshold_range">Similarity score threshold: <output  id="threshold_range_disp"></output></label>
+                <input type="range" class="custom-range" min="0" max="1" step="0.1"
+                 id="threshold_range" oninput="threshold_range_disp.value = threshold_range.value">
+
+            </div>
+
+          </div>
 
         </div>
 
-        <div class="col">
+        <br>
 
-          <div class="row">
+        <div class="row">
 
-              <select class="custom-select" id="state_selection">
-                <option selected value="N/A">Choose State or Territory</option>
-                <option value="N/A">All</option>
-                <option value="AB">Alberta</option>
-                <option value="AZ">Arizona</option>
-                <option value="IL">Illinois</option>
-                <option value="IN">Indiana</option>
-                <option value="NC">North Carolina</option>
-                <option value="NV">Nevada</option>
-                <option value="OH">Ohio</option>
-                <option value="ON">Ontario</option>
-                <option value="PA">Pennsylvania</option>
-                <option value="QC">Quebec</option>
-                <option value="SC">South Carolina</option>
-                <option value="WI">Wisconsin</option>
-              </select>
+          <div class="col">
 
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#recommendations" id="submit">
+            Get Recommendations
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="recommendations" tabindex="-1" role="dialog" aria-labelledby="recommendationsLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="recommendationsLabel">Bars similar to <span id="bars_list"></span></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+
+                  <table class="table table-bordered table-sm" >
+                    <thead class='thead-dark'>
+
+                      <tr align='center'>
+                        <th>#</th>
+                        <th>Bar</th>
+                        <th>State</th>
+                        <th>City</th>
+                      </tr>
+
+                    </thead>
+                    <tbody>
+
+                      <tr align='center'>
+                        <td>1</td>
+                        <td id="bar_0"></td>
+                        <td id="bar_state_0"></td>
+                        <td id="bar_city_0"></td>
+                      </tr>
+
+                      <tr align='center'>
+                        <td>2</td>
+                        <td id="bar_1"></td>
+                        <td id="bar_state_1"></td>
+                        <td id="bar_city_1"></td>
+                      </tr>
+
+                      <tr align='center'>
+                        <td>3</td>
+                        <td id="bar_2"></td>
+                        <td id="bar_state_2"></td>
+                        <td id="bar_city_2"></td>
+                      </tr>
+
+                      <tr align='center'>
+                        <td>4</td>
+                        <td id="bar_3"></td>
+                        <td id="bar_state_3"></td>
+                        <td id="bar_city_3"></td>
+                      </tr>
+
+                      <tr align='center'>
+                        <td>5</td>
+                        <td id="bar_4"></td>
+                        <td id="bar_state_4"></td>
+                        <td id="bar_city_4"></td>
+                      </tr>
+
+                      <tr align='center'>
+                        <td>6</td>
+                        <td id="bar_5"></td>
+                        <td id="bar_state_5"></td>
+                        <td id="bar_city_5"></td>
+                      </tr>
+
+                      <tr align='center'>
+                        <td>7</td>
+                        <td id="bar_6"></td>
+                        <td id="bar_state_6"></td>
+                        <td id="bar_city_6"></td>
+                      </tr>
+
+                      <tr align='center'>
+                        <td>8</td>
+                        <td id="bar_7"></td>
+                        <td id="bar_state_7"></td>
+                        <td id="bar_city_7"></td>
+                      </tr>
+
+                      <tr align='center'>
+                        <td>9</td>
+                        <td id="bar_8"></td>
+                        <td id="bar_state_8"></td>
+                        <td id="bar_city_8"></td>
+                      </tr>
+
+                      <tr align='center'>
+                        <td>10</td>
+                        <td id="bar_9"></td>
+                        <td id="bar_state_9"></td>
+                        <td id="bar_city_9"></td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+
+                </div>
+
+              </div>
+            </div>
           </div>
-
-          <div class="row">
-
-              <label class="mt-3" for="neighbors_range">Number of similar bars</label>
-              <input type="range" class="custom-range" min="1" max="10" step="1" id="neighbors_range">
-
-          </div>
-
-          <div class="row">
-
-              <label class="mt-3" for="threshold_range">Similarity score threshold</label>
-              <input type="range" class="custom-range" min="0" max="1" step="0.1" id="threshold_range">
-
-          </div>
-
-        </div>
 
       </div>
 
       <br>
 
-      <div class="row">
-
-        <div class="col">
-
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#recommendations" id="submit">
-          Get Recommendations
-        </button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="recommendations" tabindex="-1" role="dialog" aria-labelledby="recommendationsLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="recommendationsLabel">Bars similar to <span id="bars_list"></span></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <div class="modal-body">
-
-                <table class="table table-bordered table-sm" >
-                  <thead class='thead-dark'>
-
-                    <tr align='center'>
-                      <th>#</th>
-                      <th>Bar</th>
-                      <th>State</th>
-                      <th>City</th>
-                    </tr>
-
-                  </thead>
-                  <tbody>
-
-                    <tr align='center'>
-                      <td>1</td>
-                      <td id="bar_0"></td>
-                      <td id="bar_state_0"></td>
-                      <td id="bar_city_0"></td>
-                    </tr>
-
-                    <tr align='center'>
-                      <td>2</td>
-                      <td id="bar_1"></td>
-                      <td id="bar_state_1"></td>
-                      <td id="bar_city_1"></td>
-                    </tr>
-
-                    <tr align='center'>
-                      <td>3</td>
-                      <td id="bar_2"></td>
-                      <td id="bar_state_2"></td>
-                      <td id="bar_city_2"></td>
-                    </tr>
-
-                    <tr align='center'>
-                      <td>4</td>
-                      <td id="bar_3"></td>
-                      <td id="bar_state_3"></td>
-                      <td id="bar_city_3"></td>
-                    </tr>
-
-                    <tr align='center'>
-                      <td>5</td>
-                      <td id="bar_4"></td>
-                      <td id="bar_state_4"></td>
-                      <td id="bar_city_4"></td>
-                    </tr>
-
-                    <tr align='center'>
-                      <td>6</td>
-                      <td id="bar_5"></td>
-                      <td id="bar_state_5"></td>
-                      <td id="bar_city_5"></td>
-                    </tr>
-
-                    <tr align='center'>
-                      <td>7</td>
-                      <td id="bar_6"></td>
-                      <td id="bar_state_6"></td>
-                      <td id="bar_city_6"></td>
-                    </tr>
-
-                    <tr align='center'>
-                      <td>8</td>
-                      <td id="bar_7"></td>
-                      <td id="bar_state_7"></td>
-                      <td id="bar_city_7"></td>
-                    </tr>
-
-                    <tr align='center'>
-                      <td>9</td>
-                      <td id="bar_8"></td>
-                      <td id="bar_state_8"></td>
-                      <td id="bar_city_8"></td>
-                    </tr>
-
-                    <tr align='center'>
-                      <td>10</td>
-                      <td id="bar_9"></td>
-                      <td id="bar_state_9"></td>
-                      <td id="bar_city_9"></td>
-                    </tr>
-
-                  </tbody>
-                </table>
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-
     </div>
-
-    <br>
 
   </div>
 
+  <br>
 
+  <div class="jumbotron jumbotron-fluid text-center" id='application' style="margin-bottom:0">
+    <p>
+     If you would like to look at the code for this application please check out my
+     <a href="https://github.com/alan-j-lin/new_yelp_feature"> Github repo </a>.
+   </p>
+  </div>
     <!-- Jquery script implementation -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
@@ -239,6 +262,15 @@
           'Specific_State': $('#state_selection').val(),
           'Threshold': $('#threshold_range').val()
         };
+
+        let list_bars = '';
+
+        for(let i=1; i<4; i++){
+          let str_i = i.toString();
+          list_bars += $('#input_bar'+ str_i).val() + ' '
+        };
+
+        $('#bars_list').html(list_bars);
 
         console.log(features);
 
